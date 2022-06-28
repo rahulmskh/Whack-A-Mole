@@ -1,0 +1,95 @@
+ *{
+    margin:0;
+    padding: 0;
+ }
+ html,body{
+    height:100%
+ }
+ body{
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: rgb(116, 187, 228);
+    display: flex;
+    color: rgb(117, 19, 19);
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+ }
+ #score{
+    font-size: 2em;
+    margin-bottom: .5em;
+ }
+ .board{
+    height:600px;
+    width: 600px;
+    /* border: 1px solid red; */
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    grid-template-rows: repeat(3,1fr);
+    gap: 80px;
+ }
+ .mole{
+    background-color: rgb(17, 37, 37);
+    box-shadow: inset 0 10px 0 7px rgb(53,21,6),
+                 inset 0 20px 20px 15px rgba(0,0,0,.3),
+                 0 0 5px rgba(0,0,0,.5);
+    position: relative;
+    overflow:hidden ;             
+ }
+
+ .mole .moles{ 
+    width: 50%;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 0;
+    animation: rise .3s ease-out;
+}
+#start{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: .5em;
+    background-color: #000;
+}
+#reset{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: .5em;
+    background-color: red;
+}
+button {
+    padding: .5em 1.3em;
+    margin: 0.2em;
+    font-size: 1rem;
+    border-radius: 300px;
+    outline: none;
+    color: #ffff;
+}
+
+ @keyframes rise {
+    0%{
+        transform: translateX(-50%) translateY(100%);
+    }
+    100%{
+        transform: translateX(-50%) translateY(0);
+    }
+}
+
+ .cursor{
+    height: 110px;
+    width: 100px;
+    position: absolute;
+    top: 100px;
+    left: 100px;
+    /* background-image: url('assets/hammer.png'); */
+    background-size: 100% 100%;
+    transform: translate(-20%, -20%);
+    transition: transform .1s;
+    pointer-events: none;
+}
+.cursor.active{
+    transform: translate(-20%, -20%) rotate(-45deg);
+}
+
